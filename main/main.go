@@ -6,12 +6,14 @@ import (
 	"html"
 	"log"
 	"net/http"
+	"time"
 )
 
 type TestData struct {
 	Field1 string
 	Field2 string
 	Filed3 int
+	Time time.Time
 }
 
 func main() {
@@ -29,10 +31,11 @@ func main() {
 			"Field 1",
 			"File 2",
 			4,
+			time.Now(),
 		}
 
 		dataJson, err := json.Marshal(data)
-		if(err != nil) {
+		if err != nil {
 			panic(err)
 		}
 
